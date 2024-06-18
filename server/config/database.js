@@ -1,7 +1,9 @@
 import { Sequelize } from "sequelize";
 
-const db = new Sequelize("studysr", "postgres", "gloriaisamazing", {
-  host: "localhost",
+console.log(process.env)
+
+const db = new Sequelize("postgres", process.env.DB_USERNAME, process.env.DB_PASSWORD, {
+  host: "aws-0-us-west-1.pooler.supabase.com",
   dialect: "postgres",
 });
 
