@@ -5,16 +5,10 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
-import axios from "axios";
 
 import HomePage from "./pages/HomePage/HomePage.jsx";
 import LoginPage from "./pages/LoginPage/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage/SignupPage.jsx";
-
-
-axios.defaults.baseURL = "http://localhost:3001"
-axios.defaults.withCredentials = true;
-
 
 const router = createBrowserRouter([
   {
