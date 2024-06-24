@@ -2,15 +2,15 @@ import { DataTypes } from "sequelize";
 import db from "../config/database.js";
 
 const User = db.define("User", {
-  userID : {
+  id : {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true
   },
-  firstName: {
+  first_name: {
     type: DataTypes.STRING,
   },
-  lastName: {
+  last_name: {
     type: DataTypes.STRING,
   },
   email: {
@@ -22,9 +22,9 @@ const User = db.define("User", {
   password: {
     type: DataTypes.STRING,
   },
-  assignmentStack: {
-    type: DataTypes.ARRAY,
+  assignment_stack: {
+    type: DataTypes.ARRAY(DataTypes.INTEGER),
   },
-});
+},{ timestamps: false });
 
 export default User;
