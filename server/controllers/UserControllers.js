@@ -1,5 +1,7 @@
 import User from "../models/UserModel.js";
 
+
+// Creating User
 export const registerUser = async (req, res) => {
     try {
         const newUser = {
@@ -14,7 +16,26 @@ export const registerUser = async (req, res) => {
 
         return res.status(201).send(user);
     } catch (error) {
-        console.error("Unable to post to the database", error)
+        console.log(error.message);
+        res.status(500).send({ messsge: error.message });
     }
 }
 
+// Find User
+
+export const findUser = async (req, res) => {
+    try {
+        const { username } = req.params;
+
+        const user = await User.findOne({where: { username: username }})
+
+        if (user === null) {
+            return res.status(202).json({ message: "User not found"})
+        }
+
+        return res.status(200).send(user);
+    } catch (error) {
+        console.log(error.message);
+        res.status(500).send({ messsge: error.message });
+    }
+}
